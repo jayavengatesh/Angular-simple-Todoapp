@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+th{
+    padding: 12px;
+}
+
+td{
+    padding: 12px;
+}
+
+.delete1{
+    padding: 12px;
+
+}

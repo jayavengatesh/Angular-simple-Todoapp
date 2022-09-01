@@ -1,0 +1,79 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">ToDo Lists</h4>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div class="col-12">
+                <div class="form-outline">
+                  <input type="text"  class="form-control" required  placeholder="Enter Your tasks..." #value />
+                 
+                </div>
+              </div>
+           
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary" (click)="addTask(value.value)"  name="tasks">add</button>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-warning">Get tasks</button>
+              </div>
+            </form>  
+         
+
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                 
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tasks of Tasksarr">
+                  
+                  <td>{{tasks.name}}</td>
+                  <td>In progress</td>
+                  <td>
+                    <button type="submit" class="delete1" class="btn  btn-outline-danger" (click)="DeleteTask(tasks)">Delete</button>
+                    <button type="submit"  class="edit" class="btn btn-outline-dark ms-2" data-bs-toggle="modal" type="button" data-bs-target="#exampleModal" (click)="call(tasks)"  >edit</button>
+                 
+                  </td>
+                </tr>
+               
+              </tbody>
+            </table>
+
+          
+             
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="input-group p-4">
+                          <input type="text" class="form-control" placeholder="Enter task " name="task" #edit>
+                          <button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editTask(edit.value)">Update</button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+            
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
